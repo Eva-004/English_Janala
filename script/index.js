@@ -2,7 +2,11 @@ const wordSynonyms = (words)=>{
     const createElement = words.map(el=> `<span class="btn">${el}</span>`);
    return createElement.join(" ");
 }
-
+function pronounceWord(word) {
+  const utterance = new SpeechSynthesisUtterance(word);
+  utterance.lang = "en-EN"; 
+  window.speechSynthesis.speak(utterance);
+}
 const loadDetails=(id)=>{
     const url =`https://openapi.programming-hero.com/api/word/${id}`;
     fetch(url)
@@ -83,7 +87,7 @@ const displayLevelWord = (words) => {
      <div class="font-semibold text-lg text-center">" ${word.meaning ? word.meaning : "meaning পাওয়া যায়নি"} /${word.pronunciation ? word.pronunciation : "pronunciation পাওয়া যায়নি"} "</div>
      <div class="flex justify-between items-center">
       <button onclick="loadDetails(${word.id})" class="btn"><i class="fa-solid fa-circle-info"></i></button>
-      <button class="btn"><i class="fa-solid fa-volume-high "></i></button>
+      <button onclick="pronounceWord('${word.word}')" class="btn"><i class="fa-solid fa-volume-high "></i></button>
      </div>
     </div>
      `
@@ -110,6 +114,7 @@ loadLessons();
 document.getElementById('search-btn').addEventListener('click',()=>{
     const input = document.getElementById('input-search');
     const searchValue = input.value.trim().toLowerCase();
+    input.value = '';
     fetch("https://openapi.programming-hero.com/api/words/all")
     .then(res=>res.json())
     .then(data=>{
