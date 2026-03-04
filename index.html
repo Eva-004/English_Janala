@@ -76,7 +76,51 @@
     </div>
   </section>
 
+  <section>
+      <h2 class="font-bold text-4xl text-center"><span class="text-[#00BCFF]">Let's</span> Learn Vocabularies</h2>
+
+    <div id="level-container" class="flex gap-5 flex-wrap justify-center mt-8">
+
+    </div>
+  </section>
   
+  <section  class="flex justify-center mt-10">
+    <div class="join">
+  <div>
+    <label class="input validator join-item">
+      <input id="input-search" type="text" placeholder="Search your word" required />
+    </label>
+  </div>
+  <button id="search-btn" class="btn btn-primary join-item">Search</button>
+</div>
+  </section>
+
+ <section class="text-center mt-5">
+   <span id="spnning" class="loading loading-bars loading-xl hidden"></span>
+ </section>
+
+  <section id="word-container" class="bg-gray-100 p-10 w-11/12 mx-auto my-10 grid grid-cols-3 gap-5">
+    <div class="text-center col-span-full space-y-3 font-bangla">
+      <p class="text-gray-500">আপনি এখনো কোন Lesson Select করেন নি</p>
+      <h1 class="text-2xl text-neutral">একটি Lesson Select করুন।</h1>
+    </div>
+  </section>
+  
+  <!-- <button class="btn" onclick="my_modal_5.showModal()">open modal</button> -->
+  <dialog id="detail-modal" class="modal modal-bottom sm:modal-middle">
+  <div class="modal-box">
+    <div id="details-container" class="space-y-5">
+     
+    </div>
+    <div class="modal-action">
+      <form method="dialog">
+        <button class="btn btn-primary">Complete Learning</button>
+      </form>
+    </div>
+  </div>
+</dialog>  
+
+  <script src="./script/index.js"></script>
 </body>
 
 </html>
